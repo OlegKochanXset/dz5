@@ -1,12 +1,16 @@
 package org.example.car;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainXML {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Car car = (Car) context.getBean("car");
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        Car car = context.getBean("car", Car.class);
+        System.out.println("=== Car created via XML ===");
         System.out.println(car);
+
+        context.close();
     }
 }

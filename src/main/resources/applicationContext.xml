@@ -2,19 +2,39 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="wheel" class="org.example.car.Wheel"/>
-    <bean id="starter" class="org.example.car.Starter"/>
-    <bean id="sparkPlug" class="org.example.car.SparkPlug"/>
+    <bean id="wheel" class="org.example.car.Wheel">
+        <constructor-arg value="All-season"/>
+    </bean>
+
+    <bean id="starter" class="org.example.car.Starter">
+        <constructor-arg value="Bosch"/>
+    </bean>
+
+    <bean id="sparkPlug" class="org.example.car.SparkPlug">
+        <constructor-arg value="NGK"/>
+    </bean>
+
     <bean id="engine" class="org.example.car.Engine">
         <constructor-arg ref="starter"/>
         <constructor-arg ref="sparkPlug"/>
+        <constructor-arg value="150"/>
     </bean>
 
-    <bean id="accumulator" class="org.example.car.Accumulator"/>
-    <bean id="hinge" class="org.example.car.Hinge"/>
-    <bean id="differential" class="org.example.car.Differential"/>
+    <bean id="accumulator" class="org.example.car.Accumulator">
+        <constructor-arg value="60"/>
+        <constructor-arg value="Lead-acid"/>
+    </bean>
+
+    <bean id="hinge" class="org.example.car.Hinge">
+        <constructor-arg value="Steel"/>
+    </bean>
+
+    <bean id="differential" class="org.example.car.Differential">
+        <constructor-arg value="Limited-slip"/>
+    </bean>
+
     <bean id="suspension" class="org.example.car.Suspension">
         <constructor-arg ref="hinge"/>
         <constructor-arg ref="differential"/>
